@@ -1,9 +1,10 @@
+
 package filemanager;
 
 /**
  *
  * @author bspor
  */
-public class TextFileWriter {
+public class FileWriter {
     
 }

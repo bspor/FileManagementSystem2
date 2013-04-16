@@ -9,5 +9,5 @@ package filemanager;
  * @author bspor
  */
 public interface FileReaderStrategy {
-    
+    public Object[] readFile(String filePath);
 }

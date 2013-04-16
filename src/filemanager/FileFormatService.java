@@ -8,7 +8,6 @@ package filemanager;
  *
  * @author bspor
  */
-public interface FileReaderStrategy {
-    //Mabe enforce list or map
-    public Object[] readFile(String filePath);
+public class FileFormatService {
+    //take a file and a format and format
 }

@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author bspor
  */
-public class CsvFormat {
+public class CsvFormat implements FileFormatStrategy {
     //Returns encoded form of data
     public List<LinkedHashMap<String, String>> decode(List<String> csvData,
             boolean hasHeader ) {

@@ -14,11 +14,7 @@ public class FileFormatService {
     private FileReaderStrategy readFile ;
     private FileWriterStrategy writeFile;
     
-    
-    
-    //read input
-    //write file
-    //copy file
+
 
     public FileFormatService(FileReaderStrategy readFile, FileWriterStrategy writeFile) {
         this.readFile = readFile;

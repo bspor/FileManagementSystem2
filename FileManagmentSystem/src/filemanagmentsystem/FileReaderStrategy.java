@@ -8,7 +8,7 @@ package filemanagmentsystem;
  *
  * @author bspor
  */
-public interface FileReaderStrategy {
+public interface FileReaderStrategy throws Exception {
     //Mabe enforce list or map
     public Object[] readFile(String filePath);
 }

@@ -4,10 +4,15 @@
  */
 package filemanagmentsystem;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+
 /**
  *
  * @author bspor
  */
-public interface FileFormatStrategy {
-    
+public interface FileFormatStrategy <V, T> {
+    public abstract List<V> formatFile(List<T> type)
+            throws FileNotFoundException,IOException;
 }

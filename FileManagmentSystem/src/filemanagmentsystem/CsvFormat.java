@@ -1,5 +1,7 @@
 package filemanagmentsystem;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -18,5 +20,10 @@ public class CsvFormat implements FileFormatStrategy {
          * 
          */
         return null;
+    }
+
+    @Override
+    public List formatFile(String filePath) throws FileNotFoundException, IOException {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

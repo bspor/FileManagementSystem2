@@ -4,6 +4,9 @@
  */
 package filemanagmentsystem;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 /**
  *
  * @author bspor
@@ -21,11 +24,11 @@ public class FileFormatService {
         this.writeFile = writeFile;
     }
     
-    public void writeFormatedFile () {
+    public void writeFormatedFile () throws FileNotFoundException, IOException {
         writeFile.writeFile(null, null, true);
     }
     
-    public void readFormatedFile () {
+    public void readFormatedFile () throws FileNotFoundException, IOException {
         readFile.readFile("filepath");
     }
 }

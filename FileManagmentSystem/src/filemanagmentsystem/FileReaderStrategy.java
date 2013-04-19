@@ -4,11 +4,14 @@
  */
 package filemanagmentsystem;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 /**
  *
  * @author bspor
  */
-public interface FileReaderStrategy throws Exception {
+public interface FileReaderStrategy<V>  {
     //Mabe enforce list or map
-    public Object[] readFile(String filePath);
+    public V readFile(String filePath)throws FileNotFoundException,IOException;
 }

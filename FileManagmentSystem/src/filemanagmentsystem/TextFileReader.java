@@ -17,20 +17,12 @@ import java.util.List;
  * @author bspor
  */
 public class TextFileReader implements FileReaderStrategy {
-
-    //C:\Users\bspor\Documents\IO-Labs\IO-Labs\src\lab1\test
-    String filePath = "src" + File.separatorChar + "lab1"
-            + File.separatorChar + "test";
-    File data = new File(filePath);
-    String regexPattern = ".*\\(|\\).*";
-    int recordLength = 7;
-    String keyVal = "";
-    List<String> myList = new ArrayList<>();
     BufferedReader in = null;
     String line = "";
-
+    List<String> myList = new ArrayList<>();
     @Override
     public List<String> readFile(String filePath) throws IOException {
+        
         try {
             in = new BufferedReader(new FileReader(filePath));
 
@@ -48,6 +40,9 @@ public class TextFileReader implements FileReaderStrategy {
         }
         return myList;
     }
+
+
+
  
  
     public static void main(String[] args) throws FileNotFoundException, IOException {
@@ -58,4 +53,5 @@ public class TextFileReader implements FileReaderStrategy {
         System.out.println(frs.readFile(filePath));
        
     }
+    
 }

@@ -6,6 +6,7 @@ package filemanagmentsystem;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 /**
  *
@@ -13,5 +14,6 @@ import java.io.IOException;
  */
 public interface FileReaderStrategy<V>  {
     //Mabe enforce list or map
-    public V readFile(String filePath)throws FileNotFoundException,IOException;
+    public abstract List<V> readFile(String filePath)
+            throws FileNotFoundException,IOException;
 }

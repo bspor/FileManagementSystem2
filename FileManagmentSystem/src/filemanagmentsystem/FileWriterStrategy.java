@@ -2,16 +2,14 @@ package filemanagmentsystem;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.util.List;
+
 /**
  *
  * @author bspor
  */
-public interface FileWriterStrategy<T> {
-    public T writeFile(String filePath, T type, boolean append)
-            throws FileNotFoundException, IOException;
+public interface FileWriterStrategy <T>{
+//Mabe enforce list or map
+    public abstract void writeFile(String filePath, List<T> type, boolean append)
+            throws FileNotFoundException,IOException;
 }

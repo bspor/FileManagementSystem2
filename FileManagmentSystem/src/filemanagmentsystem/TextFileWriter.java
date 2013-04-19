@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,27 +15,30 @@ import java.io.PrintWriter;
  */
 public class TextFileWriter implements FileWriterStrategy {
     @Override
-    public Object writeFile(String filePath, Object type, boolean append) 
+   public void writeFile(String filePath, List type, boolean append) 
             throws FileNotFoundException, IOException {
         File data = new File(filePath);
         PrintWriter out = new PrintWriter(
                 new BufferedWriter(new FileWriter(data, append)));
         try {
-            File file = new File(filePath);
+            //File file = new File(filePath);
+           
+            System.out.println(type.getClass());
+            List<String> myList = new ArrayList<>(type);
 
             // if file doesnt exists, then create it
-            if (!file.exists()) {
-                file.createNewFile();
+            if (!data.exists()) {
+                data.createNewFile();
             }
-            out.write(type.toString());
+            for (String s: myList) {
+                out.write(s);
+            }
+            //out.write();
             out.close();
-
-            System.out.println("Done");
 
         } catch (IOException e) {
             System.out.println(e.getMessage());;
         }
-        return "LOSt";
     }
     
     
@@ -46,7 +51,10 @@ public class TextFileWriter implements FileWriterStrategy {
         FileReaderStrategy frs = new TextFileReader();
         //System.out.println(frs.readFile(filePath));
         FileWriterStrategy frw = new TextFileWriter();
-        System.out.println(frw.writeFile(filePath, frs.readFile(filePath2), true));
+        
+        frw.writeFile(filePath, frs.readFile(filePath2), false);
+        System.out.println("Done Did");
+        //System.out.println(frw.writeFile(filePath, frs.readFile(filePath2), true));
        
     }
 }

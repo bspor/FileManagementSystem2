@@ -31,9 +31,9 @@ public class TextFileWriter implements FileWriterStrategy {
                 data.createNewFile();
             }
             for (String s: myList) {
-                out.write(s);
+                //Put a break for each line
+                out.write(s + "\n");
             }
-            //out.write();
             out.close();
 
         } catch (IOException e) {
@@ -50,9 +50,12 @@ public class TextFileWriter implements FileWriterStrategy {
             + File.separatorChar + "test";
         FileReaderStrategy frs = new TextFileReader();
         //System.out.println(frs.readFile(filePath));
-        FileWriterStrategy frw = new TextFileWriter();
+        FileWriterStrategy fws = new TextFileWriter();
+        FileFormatStrategy ffs = new CustomCSVFormat();
         
-        frw.writeFile(filePath, frs.readFile(filePath2), false);
+        ffs.formatFile(frs.readFile(filePath));
+        
+        fws.writeFile(filePath, frs.readFile(filePath2), false);
         System.out.println("Done Did");
         //System.out.println(frw.writeFile(filePath, frs.readFile(filePath2), true));
        

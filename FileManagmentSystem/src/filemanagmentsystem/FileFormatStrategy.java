@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author bspor
  */
-public interface FileFormatStrategy <V, T> {
-    public abstract List<V> formatFile(List<T> type)
+public interface FileFormatStrategy <V> {
+    public abstract List<V> formatFile(List<V> type)
             throws FileNotFoundException,IOException;
 }

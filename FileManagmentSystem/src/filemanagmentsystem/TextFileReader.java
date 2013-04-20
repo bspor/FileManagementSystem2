@@ -27,7 +27,8 @@ public class TextFileReader implements FileReaderStrategy {
             in = new BufferedReader(new FileReader(filePath));
 
             while ((line = in.readLine()) != null) {
-                myList.add(line + "\n");
+                myList.add(line);
+               // myList.add(line + "\n");
             }
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
@@ -39,19 +40,5 @@ public class TextFileReader implements FileReaderStrategy {
             }
         }
         return myList;
-    }
-
-
-
- 
- 
-    public static void main(String[] args) throws FileNotFoundException, IOException {
-        //C:\Users\Brandon\Documents\NetBeansProjects\FileManagementSystem2\FileManagmentSystem\src\filemanagmentsystem\test
-        String filePath = "src" + File.separatorChar + "filemanagmentsystem"
-            + File.separatorChar + "test";
-        FileReaderStrategy frs = new TextFileReader();
-        System.out.println(frs.readFile(filePath));
-       
-    }
-    
+    }   
 }

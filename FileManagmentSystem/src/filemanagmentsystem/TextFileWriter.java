@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author bspor
  */
-public class TextFileWriter implements FileWriterStrategy {
+public class TextFileWriter <T> implements FileWriterStrategy {
     @Override
    public void writeFile(String filePath, List type, boolean append) 
             throws FileNotFoundException, IOException {
@@ -23,16 +23,18 @@ public class TextFileWriter implements FileWriterStrategy {
         try {
             //File file = new File(filePath);
            
-            System.out.println(type.getClass());
-            List<String> myList = new ArrayList<>(type);
+            //System.out.println(type.getClass());
+            List<T> myList = new ArrayList<>(type);
 
             // if file doesnt exists, then create it
             if (!data.exists()) {
                 data.createNewFile();
             }
-            for (String s: myList) {
+            
+            for (T t: myList) {
+                //System.out.println(s + "What");
                 //Put a break for each line
-                out.write(s + "\n");
+                out.write(t + "\n");
             }
             out.close();
 
@@ -48,16 +50,20 @@ public class TextFileWriter implements FileWriterStrategy {
             + File.separatorChar + "test2";
         String filePath2 = "src" + File.separatorChar + "filemanagmentsystem"
             + File.separatorChar + "test";
+        String test = "src" + File.separatorChar + "filemanagmentsystem"
+            + File.separatorChar + "test_comma_only.csv";
         FileReaderStrategy frs = new TextFileReader();
         //System.out.println(frs.readFile(filePath));
         FileWriterStrategy fws = new TextFileWriter();
         FileFormatStrategy ffs = new CustomCSVFormat();
         
-        ffs.formatFile(frs.readFile(filePath));
+        //fws.writeFile(filePath + "3", frs.readFile(filePath2), false);
         
-        fws.writeFile(filePath, frs.readFile(filePath2), false);
-        System.out.println("Done Did");
-        //System.out.println(frw.writeFile(filePath, frs.readFile(filePath2), true));
-       
+      // ffs.readFormatedFile(frs.readFile(filePath));
+        
+       fws.writeFile(filePath + "3", ffs.encode(frs.readFile(test)), true);
+//        
+        //fws.writeFile(filePath, frs.readFile(filePath2), false);
+        //System.out.println("Done Did");
     }
 }

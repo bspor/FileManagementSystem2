@@ -16,19 +16,18 @@ import java.util.List;
  *
  * @author bspor
  */
-public class TextFileReader implements FileReaderStrategy {
+public class TextFileReader<T> implements FileReaderStrategy {
     BufferedReader in = null;
     String line = "";
     List<String> myList = new ArrayList<>();
     @Override
-    public List<String> readFile(String filePath) throws IOException {
+    public List<T> readFile(String filePath) throws IOException {
         
         try {
             in = new BufferedReader(new FileReader(filePath));
 
             while ((line = in.readLine()) != null) {
                 myList.add(line);
-               // myList.add(line + "\n");
             }
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
@@ -39,6 +38,9 @@ public class TextFileReader implements FileReaderStrategy {
                 in.close();
             }
         }
-        return myList;
+//        for (String s: myList) {
+//            System.out.println(s + "here I am ");
+//        }
+        return (List<T>) myList;
     }   
 }

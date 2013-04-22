@@ -27,4 +27,9 @@ public class CsvFormat implements FileFormatStrategy {
     public List<LinkedHashMap<String, String>> encode(List type) throws FileNotFoundException, IOException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public List decode(List type) throws FileNotFoundException, IOException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

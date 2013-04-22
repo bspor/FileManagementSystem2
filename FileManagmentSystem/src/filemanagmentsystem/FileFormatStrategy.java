@@ -13,8 +13,7 @@ import java.util.List;
  * @author bspor
  */
 public interface FileFormatStrategy <V> {
-    public abstract List<V> decode(List<V> type)
-            throws FileNotFoundException,IOException;
-    public abstract List<V> encode(List<V> type)
-            throws FileNotFoundException,IOException;
+    public abstract List<V> decode(List<V> type);
+    public abstract List<V> encode(List<V> type);
+    public abstract List<V> writeToFile(List<V> type);
 }

@@ -60,8 +60,8 @@ public class TextFileWriter <T> implements FileWriterStrategy {
         //fws.writeFile(filePath + "3", frs.readFile(filePath2), false);
         
       // ffs.readFormatedFile(frs.readFile(filePath));
-        
-       fws.writeFile(filePath + "3", ffs.encode(frs.readFile(test)), true);
+       
+       //fws.writeFile(filePath + "3", ffs.encode(frs.readFile(test)), true);
 //        
         //fws.writeFile(filePath, frs.readFile(filePath2), false);
         //System.out.println("Done Did");

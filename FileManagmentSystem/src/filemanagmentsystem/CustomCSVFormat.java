@@ -16,7 +16,7 @@ public class CustomCSVFormat <T> implements FileFormatStrategy {
     private static final String CRLF = "\n";
 
     @Override
-    public List<Map> decode(List type){
+    public List<T> decode(List type){
         //Put my type list into an array list, making it of type String
         List<String> myList = new ArrayList<>(type);
 
@@ -41,8 +41,9 @@ public class CustomCSVFormat <T> implements FileFormatStrategy {
                 key.put(keyVal, new LinkedHashMap(record));
             }
         }
+        
         recordList.add(key);
-        return recordList;
+        return (List<T>) recordList;
     }
 
     @Override

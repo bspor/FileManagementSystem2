@@ -9,10 +9,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CustomCSVFormat <T> implements FileFormatStrategy {
-//            //C:\Users\bspor\Documents\IO-Labs\IO-Labs\src\lab1\test
-//        String filePath = "src" + File.separatorChar + "lab1"
-//                + File.separatorChar + "test";
-
     private String regexPattern = ".*\\(|\\).*";
     private String keyVal = "";
     private String split = ":";

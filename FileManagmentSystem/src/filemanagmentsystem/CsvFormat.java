@@ -11,25 +11,19 @@ import java.util.List;
  */
 public class CsvFormat implements FileFormatStrategy {
 
-    //Returns encoded form of data
-//    public List<LinkedHashMap<String, String>> decode(List<String> csvData,
-//            boolean hasHeader ) {
-//        /*
-//         * retrieve a keyset of keys
-//         * loop through the list and retrieve each map as unique record
-//         * loop through value collection and add to a string followed by a comma
-//         * 
-//         */
-//        return null;
-//    }
-
     @Override
-    public List<LinkedHashMap<String, String>> encode(List type) throws FileNotFoundException, IOException {
+    public List decode(List type) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public List decode(List type) throws FileNotFoundException, IOException {
+    public List encode(List type) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public List writeToFile(List type) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }

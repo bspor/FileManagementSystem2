@@ -14,6 +14,7 @@ import java.util.List;
  * @author bspor
  */
 public class TextFileWriter <T> implements FileWriterStrategy {
+    private static final String CRLF = "\n";
     @Override
    public void writeFile(String filePath, List type, boolean append) 
             throws FileNotFoundException, IOException {
@@ -21,11 +22,7 @@ public class TextFileWriter <T> implements FileWriterStrategy {
         PrintWriter out = new PrintWriter(
                 new BufferedWriter(new FileWriter(data, append)));
         try {
-            //File file = new File(filePath);
-           
-            //System.out.println(type.getClass());
             List<T> myList = new ArrayList<>(type);
-
             // if file doesnt exists, then create it
             if (!data.exists()) {
                 data.createNewFile();
@@ -34,16 +31,17 @@ public class TextFileWriter <T> implements FileWriterStrategy {
             for (T t: myList) {
                 //System.out.println(s + "What");
                 //Put a break for each line
-                out.write(t + "\n");
+                out.write(t + CRLF);
             }
             out.close();
 
         } catch (IOException e) {
-            System.out.println(e.getMessage());;
+            System.out.println(e.getMessage()); //Get rid of this
+            throw new IllegalArgumentException(e.getMessage());
         }
     }
     
-    
+    //Get rid
     public static void main(String[] args) throws FileNotFoundException, IOException {
         //C:\Users\Brandon\Documents\NetBeansProjects\FileManagementSystem2\FileManagmentSystem\src\filemanagmentsystem\test
         String filePath = "src" + File.separatorChar + "filemanagmentsystem"

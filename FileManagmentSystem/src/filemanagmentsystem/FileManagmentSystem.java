@@ -1,9 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package filemanagmentsystem;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,10 +8,6 @@ import java.io.IOException;
  * @author bspor
  */
 public class FileManagmentSystem {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws FileNotFoundException, IOException {
         FileReaderStrategy readFile = new TextFileReader();
         FileWriterStrategy writeFile = new TextFileWriter();

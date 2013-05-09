@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package filemanagmentsystem;
 
 import java.io.BufferedReader;
@@ -13,13 +9,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Generic text file reader class.
  *
  * @author bspor
  */
 public class TextFileReader<T> implements FileReaderStrategy {
+
     BufferedReader in = null;
     String line = "";
     List<String> myList = new ArrayList<>();
+
+    /**
+     * Method for opening and reading any text file.
+     *
+     * @param filePath required path of file
+     * @return List of Strings.
+     * @throws IOException
+     */
     @Override
     public List<T> readFile(String filePath) throws IOException {
         
@@ -30,17 +36,14 @@ public class TextFileReader<T> implements FileReaderStrategy {
                 myList.add(line);
             }
         } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage()); //get rid
         } catch (IOException e) {
-            System.out.println(e.getMessage());;
+            System.out.println(e.getMessage());//get rid
         } finally {
             if (in != null) {
                 in.close();
             }
         }
-//        for (String s: myList) {
-//            System.out.println(s + "here I am ");
-//        }
         return (List<T>) myList;
-    }   
+    }
 }

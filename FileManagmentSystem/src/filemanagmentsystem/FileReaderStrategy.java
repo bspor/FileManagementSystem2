@@ -9,11 +9,18 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- *
+ * Text file reader interface.
  * @author bspor
  */
 public interface FileReaderStrategy<V>  {
-    //Mabe enforce list or map
+
+    /**
+     * Method to read any text file.
+     * @param filePath file path to read file.
+     * @return returns a list of values.
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public abstract List<V> readFile(String filePath)
             throws FileNotFoundException,IOException;
 }

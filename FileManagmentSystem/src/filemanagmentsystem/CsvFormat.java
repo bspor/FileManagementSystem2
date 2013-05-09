@@ -1,16 +1,16 @@
 package filemanagmentsystem;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.LinkedHashMap;
 import java.util.List;
-
 /**
- *
+ * Standard CSV formatter.
  * @author bspor
  */
 public class CsvFormat implements FileFormatStrategy {
 
+    /**
+     * Decode method for any 
+     * @param type
+     * @return
+     */
     @Override
     public List decode(List type) {
         throw new UnsupportedOperationException("Not supported yet.");

@@ -1,5 +1,4 @@
 package filemanagmentsystem;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,16 +7,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
- *
+ * This class is a generic text file writing class.
  * @author bspor
  */
 public class TextFileWriter <T> implements FileWriterStrategy {
     private static final String CRLF = "\n";
+    
     @Override
    public void writeFile(String filePath, List type, boolean append) 
-            throws FileNotFoundException, IOException {
+            throws FileNotFoundException, IOException { 
         File data = new File(filePath);
         PrintWriter out = new PrintWriter(
                 new BufferedWriter(new FileWriter(data, append)));
@@ -29,8 +28,6 @@ public class TextFileWriter <T> implements FileWriterStrategy {
             }
             
             for (T t: myList) {
-                //System.out.println(s + "What");
-                //Put a break for each line
                 out.write(t + CRLF);
             }
             out.close();

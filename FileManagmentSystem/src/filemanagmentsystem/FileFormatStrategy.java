@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 /**
- *
+ * My file formating interface.
  * @author bspor
  */
 public interface FileFormatStrategy <V> {

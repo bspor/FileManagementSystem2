@@ -118,11 +118,10 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
             throw new IllegalArgumentException();
         } else {
             Collection<T> myCollection = encode(type);
-            //List<T> tempList = encode(type);
             List<StringBuilder> myList = new ArrayList<>();
             StringBuilder sb = new StringBuilder();
             Iterator itr = myCollection.iterator();
-
+            //Loop through the string.
             while (itr.hasNext()) {
                 Map element = (Map) itr.next();
                 String[] key;

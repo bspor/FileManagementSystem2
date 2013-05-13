@@ -22,8 +22,8 @@ public class FileManagmentSystem {
                 + File.separatorChar + "test_comma_only.csv";
         boolean append = false;
 
-        FileFormatService ffService = new FileFormatService(readFile, writeFile, 
+        FileService ffService = new FileService(readFile, writeFile, 
                                             fileFormat, test, filePath, append);
-        ffService.writeFormatedFile();
+        ffService.writeFileToFile();
     }
 }

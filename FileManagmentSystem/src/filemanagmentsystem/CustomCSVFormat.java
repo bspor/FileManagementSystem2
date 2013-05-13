@@ -113,7 +113,7 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
      * @return a StringBuilder type string.
      */
     @Override
-    public List writeToFile(List type) {
+    public List getFormatedList(List type) {
         if (type == null || type.isEmpty()) {
             throw new IllegalArgumentException();
         } else {

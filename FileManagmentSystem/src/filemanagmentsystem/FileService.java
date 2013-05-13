@@ -61,7 +61,7 @@ public class FileService {
      * @throws IOException
      */
     public void writeFileToFile() throws FileNotFoundException, IOException {
-        writeFile.writeFile(filePathOut, fileFormat.getFormatedList(readFile.readFile(filePathIn)),append);
+        writeFile.writeFile(filePathOut, fileFormat.encode(readFile.readFile(filePathIn)),append);
     }
 
 
@@ -73,10 +73,6 @@ public class FileService {
      * @throws IOException
      */
     public void writeStringToFile(String filePathOut, List s) throws FileNotFoundException, IOException {
-        writeFile.writeFile(filePathOut, fileFormat.getFormatedList(s),append);
-    }
-    
-    public void readFormatedFile() throws FileNotFoundException, IOException {
-        readFile.readFile("filepath");
+        writeFile.writeFile(filePathOut, fileFormat.encode(s),append);
     }
 }

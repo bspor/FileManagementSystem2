@@ -1,8 +1,6 @@
 package filemanagmentsystem;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 /**
  * My file formating interface.
  * @author bspor
@@ -25,5 +23,5 @@ public interface FileFormatStrategy <V> {
      * @param type any type of value.
      * @return a list of generic values.
      */
-    public abstract List<V> getFormatedList(List<V> type);
+    public abstract String getFormatedList(List<Map> type);
 }

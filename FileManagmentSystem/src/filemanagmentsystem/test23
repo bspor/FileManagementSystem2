@@ -1,9 +1,1 @@
-(1)
-totalFees:21.65
-totalHours:34.50
-Cars:29
-(2)
-totalFees:44.0
-totalHours:66.0
-Cars:90
-
+{(1)={totalFees:=21.65, totalHours:=34.50, Cars:=29}, (2)={totalFees:=44.0, totalHours:=66.0, Cars:=90}, (3)={totalFees:=totalFees, totalHours:=totalHours, Cars:=Cars}, (4)={totalFees:=21.65, totalHours:=34.50, Cars:=29}, (5)={totalFees:=44.0, totalHours:=66.0, Cars:=90}}

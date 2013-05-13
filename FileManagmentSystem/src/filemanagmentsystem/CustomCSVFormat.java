@@ -17,7 +17,6 @@ import java.util.regex.Pattern;
  */
 public class CustomCSVFormat<T> implements FileFormatStrategy {
     //Constants
-
     private static final String LEFT_PREN = "(";
     private static final String RIGHT_PREN = ")";
     private static final String REGEX_PATTERN = ".*\\(|\\).*";
@@ -113,7 +112,7 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
      * @return a StringBuilder type string.
      */
     @Override
-    public List getFormatedList(List type) {
+    public String getFormatedList(List type) {
         if (type == null || type.isEmpty()) {
             throw new IllegalArgumentException();
         } else {
@@ -133,9 +132,9 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
                         sb.append(CRLF);
                     }
                 }
-                myList.add(sb);
+                //myList.add(sb);
             }
-            return myList;
+            return sb.toString();
         }
     }
 }

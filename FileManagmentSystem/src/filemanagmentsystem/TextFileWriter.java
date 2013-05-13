@@ -33,7 +33,6 @@ public class TextFileWriter <T> implements FileWriterStrategy {
             out.close();
 
         } catch (IOException e) {
-            System.out.println(e.getMessage()); //Get rid of this
             throw new IllegalArgumentException(e.getMessage());
         }
     }

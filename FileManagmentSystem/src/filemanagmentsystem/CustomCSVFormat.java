@@ -124,7 +124,7 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
             //Loop through the string.
             while (itr.hasNext()) {
                 Map element = (Map) itr.next();
-                String[] key;
+                //String[] key;
                 for (Object o : element.keySet()) {
                     sb.append(o).append(CRLF);
                     Map myRecord = (Map) element.get(o);

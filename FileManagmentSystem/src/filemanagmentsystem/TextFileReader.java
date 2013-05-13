@@ -36,9 +36,9 @@ public class TextFileReader<T> implements FileReaderStrategy {
                 myList.add(line);
             }
         } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage()); //get rid
+            throw new IllegalArgumentException(e.getMessage());
         } catch (IOException e) {
-            System.out.println(e.getMessage());//get rid
+           throw new IllegalArgumentException(e.getMessage());
         } finally {
             if (in != null) {
                 in.close();

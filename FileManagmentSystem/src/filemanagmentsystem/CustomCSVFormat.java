@@ -51,7 +51,6 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
 
             //Loop through the string
             for (String s : myList) {
-                System.out.println(s);
                 Pattern pattern = Pattern.compile(REGEX_PATTERN);
                 Matcher matcher = pattern.matcher(s);
                 if (matcher.find()) {

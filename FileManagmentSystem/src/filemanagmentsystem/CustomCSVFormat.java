@@ -65,7 +65,6 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
                     }
                 }
             }
-
             recordList.add(key);
             return (Map<String, T>) key;
             //return (List<T>) recordList;
@@ -77,14 +76,11 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
         String keyValue = "";
         Map<String, Map> key = new LinkedHashMap<>();
         Map<String, String> record = new LinkedHashMap<>();
-        
         if (s == null || s.isEmpty() || s.length() < 4) {
             throw new IllegalArgumentException();
         } else {
-            //Put my type list into an array list, making it of type String
-          
+           //Put my type list into an array list, making it of type String
            String [] temp = s.split(CRLF2);
-
             //Loop through the string
             for (String t : temp) {
                 Pattern pattern = Pattern.compile(REGEX_PATTERN);
@@ -103,7 +99,6 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
         }
     }
     
-
     /**
      * Takes a generic list and encodes it to my custom format
      *
@@ -138,7 +133,6 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
                 key.put(keyVal,
                         new LinkedHashMap(record));
             }
-            
             recordList.add(key);
             return recordList;
         }
@@ -170,7 +164,6 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
                         sb.append(CRLF);
                     }
                 }
-                //myList.add(sb);
             }
             return sb.toString();
         }

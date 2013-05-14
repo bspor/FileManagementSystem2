@@ -175,19 +175,6 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
             return sb.toString();
         }
     }
-
-   
-    
-    public static void main(String[] args) throws IOException {
-        String myPath = "C:/Users/Brandon/Desktop/Testing 123.txt";
-   CustomCSVFormat csv = new CustomCSVFormat();
-    TextFileReader fr = new TextFileReader();
-    List values = fr.readFile(myPath);
-        Map decode = csv.decode(values);
-        String s =FormatService.queryByRecordAndFieldName(decode, "(Yo BOb)", "total_hours");
-        System.out.println(s);
-    }
-
 }
 
         

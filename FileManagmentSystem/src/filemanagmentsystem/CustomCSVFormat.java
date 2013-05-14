@@ -1,4 +1,5 @@
 package filemanagmentsystem;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -23,6 +24,7 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
     private static final String SPLIT = ":";
     private String SPLIT_COMMA = ",";
     private static final String CRLF = "\n";
+    private static final String CRLF2 = System.getProperty("line.separator");
     //Key value
     private String keyVal = "";
 
@@ -33,7 +35,7 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
      * @return LinkedHashMap as type T.
      */
     @Override
-    public List<T> decode(List type) {
+    public Map<String, T> decode(List type) {
         if (type == null || type.isEmpty()) {
             throw new IllegalArgumentException();
         } else {
@@ -48,23 +50,59 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
 
             //Loop through the string
             for (String s : myList) {
+                System.out.println(s);
                 Pattern pattern = Pattern.compile(REGEX_PATTERN);
                 Matcher matcher = pattern.matcher(s);
                 if (matcher.find()) {
-                    //Create my keys
+                    //Create my key
                     keyVal = s;
                 } else {
                     //Create new records 
-                    String[] parts = s.split(SPLIT);
-                    record.put(parts[0], parts[1]);
-                    key.put(keyVal, new LinkedHashMap(record));
+                    if (s != null && s.length() != 0) {
+                        String[] parts = s.split(SPLIT);
+                        record.put(parts[0], parts[1]);
+                        key.put(keyVal, new LinkedHashMap(record));
+                    }
                 }
             }
 
             recordList.add(key);
-            return (List<T>) recordList;
+            return (Map<String, T>) key;
+            //return (List<T>) recordList;
         }
     }
+    
+    @Override
+    public Map<String, T> decode(String s) {
+        String keyValue = "";
+        Map<String, Map> key = new LinkedHashMap<>();
+        Map<String, String> record = new LinkedHashMap<>();
+        
+        if (s == null || s.isEmpty() || s.length() < 4) {
+            throw new IllegalArgumentException();
+        } else {
+            //Put my type list into an array list, making it of type String
+          
+           String [] temp = s.split(CRLF2);
+
+            //Loop through the string
+            for (String t : temp) {
+                Pattern pattern = Pattern.compile(REGEX_PATTERN);
+                Matcher matcher = pattern.matcher(t);
+                if (matcher.find()) {
+                    //Create my keys
+                    keyValue = t;
+                } else {
+                    //Create new records 
+                    String[] parts = t.split(SPLIT);
+                    record.put(parts[0], parts[1]);
+                    key.put(keyValue, new LinkedHashMap(record));
+                }
+            }
+            return (Map<String, T>) key;
+        }
+    }
+    
 
     /**
      * Takes a generic list and encodes it to my custom format
@@ -137,4 +175,19 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
             return sb.toString();
         }
     }
+
+   
+    
+    public static void main(String[] args) throws IOException {
+        String myPath = "C:/Users/Brandon/Desktop/Testing 123.txt";
+   CustomCSVFormat csv = new CustomCSVFormat();
+    TextFileReader fr = new TextFileReader();
+    List values = fr.readFile(myPath);
+        Map decode = csv.decode(values);
+        String s =FormatService.queryByRecordAndFieldName(decode, "(Yo BOb)", "total_hours");
+        System.out.println(s);
+    }
+
 }
+
+        

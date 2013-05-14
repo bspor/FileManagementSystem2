@@ -18,6 +18,15 @@ public class TextFileWriter<T> implements FileWriterStrategy {
 
     private static final String CRLF = "\n";
 
+    /**
+     * Method to write a text file.
+     *
+     * @param filePath required filepath for file to be opened.
+     * @param type any type of list.
+     * @param append set to true to append to file, false to overwrite
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     @Override
     public void writeFile(String filePath, List type, boolean append)
             throws FileNotFoundException, IOException {
@@ -41,6 +50,16 @@ public class TextFileWriter<T> implements FileWriterStrategy {
         }
     }
 
+    /**
+     * Method to write a text file.
+     *
+     * @param filePath required filepath for file to be opened.
+     * @param s a String to be written to file
+     * @param append set to true to append to file, false to overwrite
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    @Override
     public void writeFile(String filePath, String s, boolean append)
             throws FileNotFoundException, IOException {
         File data = new File(filePath);
@@ -51,7 +70,7 @@ public class TextFileWriter<T> implements FileWriterStrategy {
             if (!data.exists()) {
                 data.createNewFile();
             }
-            out.write(s);
+            out.write(s + CRLF);
 
             out.close();
 

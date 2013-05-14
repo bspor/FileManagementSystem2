@@ -11,7 +11,14 @@ public interface FileFormatStrategy <V> {
      * @param type any type of value.
      * @return a list of generic values.
      */
-    public abstract List<V> decode(List<V> type);
+    public abstract Map<String, V> decode(List type);
+    
+     /**
+     * Overloaded method to parse a string vs a list.
+     * @param s string to decode
+     * @return
+     */
+    public abstract Map<String, V> decode(String s);
     /**
      * Encode method required of all implementations.
      * @param type any type of value.
@@ -24,4 +31,5 @@ public interface FileFormatStrategy <V> {
      * @return a list of generic values.
      */
     public abstract String getFormatedList(List<Map> type);
+    
 }

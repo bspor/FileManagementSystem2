@@ -25,7 +25,7 @@ public abstract class FormatService {
     private final static String SIMPLE_TIME = "hh:mm a";
     private final static String INVALID = "Invalid input.";
     private final static String DECIMAL_FORMAT = "#0.00";
-
+    private final static double MINUTES = 60;
     /**
      * Method for calculating Month/Day based off the current system.
      *
@@ -109,7 +109,6 @@ public abstract class FormatService {
      */
     public static String queryByRecordAndFieldName(Map<String, Map> key, String valKey, String field) {
             Map <String, String> mapOutput = new LinkedHashMap<>(key.get(valKey));
-            //System.out.println(mapOutput.get(field) + " FormatService");
             return mapOutput.get(field);
     }
 
@@ -133,7 +132,7 @@ public abstract class FormatService {
             Calendar cal = Calendar.getInstance(); // creates calendar
             cal.setTime(date); // sets calendar time/date
             hours = (int) d; // get my hours
-            double tryme = d % hours * 60; // get my minutes
+            double tryme = d % hours * MINUTES; // get my minutes
             minutes = (int) tryme;
             cal.add(Calendar.HOUR_OF_DAY, hours);
             cal.add(Calendar.MINUTE, minutes);

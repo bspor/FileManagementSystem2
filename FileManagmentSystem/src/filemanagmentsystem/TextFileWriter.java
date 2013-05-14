@@ -15,7 +15,6 @@ import java.util.List;
  * @author bspor
  */
 public class TextFileWriter<T> implements FileWriterStrategy {
-
     private static final String CRLF = "\n";
 
     /**

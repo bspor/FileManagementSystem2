@@ -1,4 +1,5 @@
 package filemanagmentsystem;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -70,7 +71,13 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
             //return (List<T>) recordList;
         }
     }
-    
+
+    /**
+     * This method takes a String and casts it to a LinkedHashmap
+     *
+     * @param String a string.
+     * @return LinkedHashMap as type T.
+     */
     @Override
     public Map<String, T> decode(String s) {
         String keyValue = "";
@@ -79,8 +86,8 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
         if (s == null || s.isEmpty() || s.length() < 4) {
             throw new IllegalArgumentException();
         } else {
-           //Put my type list into an array list, making it of type String
-           String [] temp = s.split(CRLF2);
+            //Put my type list into an array list, making it of type String
+            String[] temp = s.split(CRLF2);
             //Loop through the string
             for (String t : temp) {
                 Pattern pattern = Pattern.compile(REGEX_PATTERN);
@@ -98,7 +105,7 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
             return (Map<String, T>) key;
         }
     }
-    
+
     /**
      * Takes a generic list and encodes it to my custom format
      *
@@ -140,6 +147,7 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
 
     /**
      * Returns a formated string in the custom format to be written to a file.
+     *
      * @param type any type of list will be parsed to a string and written.
      * @return a StringBuilder type string.
      */
@@ -169,5 +177,3 @@ public class CustomCSVFormat<T> implements FileFormatStrategy {
         }
     }
 }
-
-        

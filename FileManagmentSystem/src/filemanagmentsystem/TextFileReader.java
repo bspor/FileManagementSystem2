@@ -1,4 +1,5 @@
 package filemanagmentsystem;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,7 +28,6 @@ public class TextFileReader<T> implements FileReaderStrategy {
      */
     @Override
     public List<T> readFile(String filePath) throws IOException {
-        
         try {
             in = new BufferedReader(new FileReader(filePath));
 
@@ -37,7 +37,7 @@ public class TextFileReader<T> implements FileReaderStrategy {
         } catch (FileNotFoundException e) {
             throw new IllegalArgumentException(e.getMessage());
         } catch (IOException e) {
-           throw new IllegalArgumentException(e.getMessage());
+            throw new IllegalArgumentException(e.getMessage());
         } finally {
             if (in != null) {
                 in.close();
